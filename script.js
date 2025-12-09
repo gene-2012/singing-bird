@@ -18,6 +18,8 @@ const finalScoreElement = document.getElementById('final-score');
 const restartBtn = document.getElementById('restart-btn');
 const startScreen = document.getElementById('start-screen');
 const startBtn = document.getElementById('start-btn');
+const body = document.body;
+const freqIndicator = document.getElementById('freq-indicator');
 
 // 游戏状态变量
 let birdPosition = 300;
@@ -31,6 +33,7 @@ let animationId;
 let currentFrequency = 0;
 let gameStarted = false;
 let gravity = -0.05;
+let startTime = 0;
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -108,6 +111,7 @@ function startGame() {
     birdVelocity = 0;
     pipes = [];
     gameSpeed = 3;
+    startTime = Date.now();
     
     scoreElement.textContent = score;
     gameOverElement.style.display = 'none';
@@ -136,6 +140,16 @@ function gameLoop() {
 
 // 更新小鸟位置（完全由声音控制）
 function updateBird() {
+    const currentTime = Date.now();
+    if (currentTime - startTime < 3000 && currentFrequency < 100) {
+        birdPosition = 300 + 0.006 * (currentTime - startTime);
+        birdElement.style.top = `${birdPosition}px`;
+        freqIndicator.style.color = 'green';
+        return ;
+    } else {
+        freqIndicator.style.color = 'white';
+    }
+
     // 根据声音频率控制小鸟位置
     if (currentFrequency > 0) {
         // 将频率映射到目标Y位置

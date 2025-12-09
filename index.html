@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pixelated Flappy Bird</title>
+  <title>Singing Flappy Bird</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="game-container">
     <div id="clouds"></div>
     <div id="score">0</div>
+    <div id="freq-indicator"><span id="freq">0</span></div>
     <div id="bird"></div>
     <div id="ground"></div>
     <div id="start-screen">
       <h1 id="start-title">FLAPPY BIRD</h1>
       <button id="start-btn">START GAME</button>
       <div id="instructions">
-        Press SPACE or CLICK to flap wings<br>
-        Press SPACE to start game<br>
+        Make sounds to control the bird's height<br>
+        Higher pitch = fly higher<br>
+        Lower pitch = fly lower<br>
+        SILENCE = DIE!<br>
         Avoid the pipes<br>
         Each pair of pipes = 1 point
       </div>
