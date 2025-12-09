@@ -141,7 +141,7 @@ function gameLoop() {
 // 更新小鸟位置（完全由声音控制）
 function updateBird() {
     const currentTime = Date.now();
-    if (currentTime - startTime < 3000 && currentFrequency < 100) {
+    if (currentTime - startTime < 3000 && currentFrequency < 200) {
         birdPosition = 300 + 0.006 * (currentTime - startTime);
         birdElement.style.top = `${birdPosition}px`;
         freqIndicator.style.color = 'green';
