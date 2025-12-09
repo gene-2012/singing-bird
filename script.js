@@ -201,7 +201,7 @@ function updatePipes() {
     const currentTime = Date.now();
     
     // 每2秒创建一个新管道
-    if (currentTime - lastPipeTime > 2000) {
+    if (currentTime - lastPipeTime > 1000) {
         createPipe();
         lastPipeTime = currentTime;
     }
